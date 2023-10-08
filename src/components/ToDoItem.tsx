@@ -14,18 +14,22 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, markAsCompleted, deleteTodo }) => {
   return (
-    <li>
+    <li style={{ display: 'flex', alignItems: 'center', marginBottom: '8px', width: '40%', borderBottom: '1px solid grey', padding: '10px' }}>
       <input
         type="checkbox"
         checked={todo.completed}
         onChange={() => markAsCompleted(todo.id)}
+        style={{ marginRight: '8px' }}
       />
       <span
-        style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+        style={{
+            textDecoration: todo.completed ? 'line-through' : 'none',
+            flex: '1',
+        }}
       >
         {todo.text}
       </span>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      <button onClick={() => deleteTodo(todo.id)} style={{ backgroundColor: 'red', color: 'white', border: 'none', padding: '4px 8px' }}>Delete</button>
     </li>
   );
 };

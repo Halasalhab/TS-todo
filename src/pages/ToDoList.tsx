@@ -37,7 +37,7 @@ const ToDoList: React.FC = () => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif' }}>
       <h1>Todo App</h1>
       <div>
         <input
@@ -45,10 +45,11 @@ const ToDoList: React.FC = () => {
           placeholder="Add a new todo"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
+          style={{ padding: '8px', marginRight: '8px' }}
         />
-        <button onClick={addTodo}>Add</button>
+        <button onClick={addTodo} style={{ padding: '8px' }}>Add</button>
       </div>
-      <ul>
+      <ul style={{ listStyleType: 'none', padding: '0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}
